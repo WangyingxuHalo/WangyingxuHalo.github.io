@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[js之获取浏览器语言]]></title>
+    <url>%2F2019%2F07%2F22%2FnavigatorLanguage%2F</url>
+    <content type="text"><![CDATA[navigator.language和navigator.browserLanguage&#8195;&#8195;今天看代码的时候看到了navigator.language以及navigator.browserLanguage那这些分别指代的是哪里的语言呢？我百度了一下W3C文档上写着：window.navigator.languageReturns a language tag representing the user’s preferred language. 什么意思呢？也就是说，每个浏览器会有一个语言列表的设置，用户可以设置自己的首选语言，那么window.navigator.language就会返回浏览器中用户的首选语言 例如我在chrome浏览器中使用以下语句 1console.log(window.navigator.language) 会输出 ‘zh-CN’ 而将首选语言改为英文之后会输出 ‘en’ navigator.browserLanguage和前面的类似，不过各种浏览器有不同的兼容看见一篇博客如下 IE6 IE7 IE8 Firefox Safari Chrome Opera navigator.language undefined zh-CN zh-CN navigator.userLanguage zh-cn undefined zh-cn navigator.browserLanguage zh-cn undefined zh-cn navigator.systemLanguage zh-cn undefined undefined 图片来源: https://blog.csdn.net/lvjin110/article/details/37663067 但是我自己尝试的时候IE浏览器也会打印 ‘zh-CN’可能这个版本比较老，现在IE浏览器版本高了很多吧 为了适配所有浏览器，书写代码的时候可以这么写: 1const browserLang = navigator.language || navigator.browserLanguage || &apos;zh&apos; 意思是：如果navigator.language的值为undefined，则使用navigator.browserLanguage，如果navigator.browserLanguage的值为undefined，则取’zh’ 因为可能有大小写的区别，根据写法和判断的不同，也可以写成这样： 1(navigator.language || navigator.browserLanguage).toLowerCase() 这样基本就能考虑到所有浏览器的兼容性了]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+</search>

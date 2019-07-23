@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>王迎旭的博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-07-23T02:15:43.659Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Siri Wang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js之获取浏览器语言</title>
+    <link href="http://yoursite.com/2019/07/22/navigatorLanguage/"/>
+    <id>http://yoursite.com/2019/07/22/navigatorLanguage/</id>
+    <published>2019-07-22T08:55:58.064Z</published>
+    <updated>2019-07-23T02:15:43.659Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="navigator-language和navigator-browserLanguage"><a href="#navigator-language和navigator-browserLanguage" class="headerlink" title="navigator.language和navigator.browserLanguage"></a>navigator.language和navigator.browserLanguage</h1><p>&#8195;&#8195;今天看代码的时候看到了navigator.language以及navigator.browserLanguage<br><br>那这些分别指代的是哪里的语言呢？<br>我百度了一下<br><br>W3C文档上写着：<br><br><strong>window.navigator.language<br>Returns a language tag representing the user’s preferred language.</strong><br></p><h2 id="什么意思呢？"><a href="#什么意思呢？" class="headerlink" title="什么意思呢？"></a>什么意思呢？</h2><p>也就是说，每个浏览器会有一个语言列表的设置，用户可以设置自己的首选语言，那么window.navigator.language<br>就会返回浏览器中用户的首选语言</p><p>例如我在chrome浏览器中使用以下语句</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(window.navigator.language)</span><br></pre></td></tr></table></figure><p>会输出 ‘zh-CN’</p><p>而将首选语言改为英文之后会输出 ‘en’</p><hr><p>navigator.browserLanguage和前面的类似，<br><br>不过各种浏览器有不同的兼容<br><br>看见一篇博客<br>如下</p><table><thead><tr><th align="left"></th><th align="center">IE6 IE7 IE8</th><th align="center">Firefox Safari Chrome</th><th align="right">Opera</th></tr></thead><tbody><tr><td align="left">navigator.language</td><td align="center">undefined</td><td align="center">zh-CN</td><td align="right">zh-CN</td></tr><tr><td align="left">navigator.userLanguage</td><td align="center">zh-cn</td><td align="center">undefined</td><td align="right">zh-cn</td></tr><tr><td align="left">navigator.browserLanguage</td><td align="center">zh-cn</td><td align="center">undefined</td><td align="right">zh-cn</td></tr><tr><td align="left">navigator.systemLanguage</td><td align="center">zh-cn</td><td align="center">undefined</td><td align="right">undefined</td></tr></tbody></table><p>图片来源:</p><blockquote><p><a href="https://blog.csdn.net/lvjin110/article/details/37663067" target="_blank" rel="noopener">https://blog.csdn.net/lvjin110/article/details/37663067</a></p></blockquote><p>但是我自己尝试的时候IE浏览器也会打印 ‘zh-CN’<br>可能这个版本比较老，现在IE浏览器版本高了很多吧</p><p>为了适配所有浏览器，书写代码的时候可以这么写:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const browserLang = navigator.language || navigator.browserLanguage || &apos;zh&apos;</span><br></pre></td></tr></table></figure><p>意思是：<br><br>如果navigator.language的值为undefined，则使用navigator.browserLanguage，如果navigator.browserLanguage的值为undefined，则取’zh’</p><p>因为可能有大小写的区别，根据写法和判断的不同，也可以写成这样：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(navigator.language || navigator.browserLanguage).toLowerCase()</span><br></pre></td></tr></table></figure><p>这样基本就能考虑到所有浏览器的兼容性了</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;navigator-language和navigator-browserLanguage&quot;&gt;&lt;a href=&quot;#navigator-language和navigator-browserLanguage&quot; class=&quot;headerlink&quot; title=&quot;navi
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+</feed>
