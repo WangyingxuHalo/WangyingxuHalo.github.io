@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="navigator.language和navigator.browserLanguage&amp;#8195;&amp;#8195;今天看代码的时候看到了navigator.language以及navigator.browserLanguage那这些分别指代的是哪里的语言呢？我百度了一下W3C文档上写着：window.navigator.languageReturns a language tag represe">
+<meta name="description" content="今天遇到了两个新概念: 服务端渲染(SSR)和客户端渲染(CSR)。他们分别是什么，各自有什么区别呢？ 服务端渲染(SSR: Server Side Render)概念: 服务器端生成html字符串，在给客户端返回html前，先在指定区域内填充数据和符号，再发送给客户端。客户端只负责解析html  优点:   前端耗时少，因为不再依赖与js文件首屏渲染快，客户端只用解析html 有利于SEO(Se">
 <meta name="keywords" content="Web前端 HTML CSS JS Vue学习日记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js之获取浏览器语言">
-<meta property="og:url" content="http://yoursite.com/2019/07/22/navigatorLanguage/index.html">
+<meta property="og:title" content="服务端渲染 vs 客户端渲染">
+<meta property="og:url" content="http://yoursite.com/2019/07/24/SSR&CSR/index.html">
 <meta property="og:site_name" content="王迎旭的博客">
-<meta property="og:description" content="navigator.language和navigator.browserLanguage&amp;#8195;&amp;#8195;今天看代码的时候看到了navigator.language以及navigator.browserLanguage那这些分别指代的是哪里的语言呢？我百度了一下W3C文档上写着：window.navigator.languageReturns a language tag represe">
+<meta property="og:description" content="今天遇到了两个新概念: 服务端渲染(SSR)和客户端渲染(CSR)。他们分别是什么，各自有什么区别呢？ 服务端渲染(SSR: Server Side Render)概念: 服务器端生成html字符串，在给客户端返回html前，先在指定区域内填充数据和符号，再发送给客户端。客户端只负责解析html  优点:   前端耗时少，因为不再依赖与js文件首屏渲染快，客户端只用解析html 有利于SEO(Se">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-23T02:15:43.659Z">
+<meta property="og:updated_time" content="2019-07-24T06:27:55.254Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js之获取浏览器语言">
-<meta name="twitter:description" content="navigator.language和navigator.browserLanguage&amp;#8195;&amp;#8195;今天看代码的时候看到了navigator.language以及navigator.browserLanguage那这些分别指代的是哪里的语言呢？我百度了一下W3C文档上写着：window.navigator.languageReturns a language tag represe">
+<meta name="twitter:title" content="服务端渲染 vs 客户端渲染">
+<meta name="twitter:description" content="今天遇到了两个新概念: 服务端渲染(SSR)和客户端渲染(CSR)。他们分别是什么，各自有什么区别呢？ 服务端渲染(SSR: Server Side Render)概念: 服务器端生成html字符串，在给客户端返回html前，先在指定区域内填充数据和符号，再发送给客户端。客户端只负责解析html  优点:   前端耗时少，因为不再依赖与js文件首屏渲染快，客户端只用解析html 有利于SEO(Se">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/22/navigatorLanguage/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/24/SSR&CSR/">
 
 
 
 
 
-  <title>js之获取浏览器语言 | 王迎旭的博客</title>
+  <title>服务端渲染 vs 客户端渲染 | 王迎旭的博客</title>
   
 
 
@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/22/navigatorLanguage/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/SSR&CSR/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Siri Wang">
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js之获取浏览器语言</h1>
+          <h1 class="post-title" itemprop="name headline">服务端渲染 vs 客户端渲染</h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-22T16:55:58+08:00">
-                2019-07-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-24T14:17:11+08:00">
+                2019-07-24
               </time>
             
 
@@ -344,8 +344,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
                   </a>
                 </span>
 
@@ -375,7 +375,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  385 字
+                  544 字
                 </span>
               
 
@@ -412,62 +412,46 @@
       
 
       
-        <h1 id="navigator-language和navigator-browserLanguage"><a href="#navigator-language和navigator-browserLanguage" class="headerlink" title="navigator.language和navigator.browserLanguage"></a>navigator.language和navigator.browserLanguage</h1><p>&#8195;&#8195;今天看代码的时候看到了navigator.language以及navigator.browserLanguage<br><br>那这些分别指代的是哪里的语言呢？<br>我百度了一下<br><br>W3C文档上写着：<br><br><strong>window.navigator.language<br>Returns a language tag representing the user’s preferred language.</strong><br></p>
-<h2 id="什么意思呢？"><a href="#什么意思呢？" class="headerlink" title="什么意思呢？"></a>什么意思呢？</h2><p>也就是说，每个浏览器会有一个语言列表的设置，用户可以设置自己的首选语言，那么window.navigator.language<br>就会返回浏览器中用户的首选语言</p>
-<p>例如我在chrome浏览器中使用以下语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(window.navigator.language)</span><br></pre></td></tr></table></figure>
-
-<p>会输出 ‘zh-CN’</p>
-<p>而将首选语言改为英文之后会输出 ‘en’</p>
-<hr>
-<p>navigator.browserLanguage和前面的类似，<br><br>不过各种浏览器有不同的兼容<br><br>看见一篇博客<br>如下</p>
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="center">IE6 IE7 IE8</th>
-<th align="center">Firefox Safari Chrome</th>
-<th align="right">Opera</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">navigator.language</td>
-<td align="center">undefined</td>
-<td align="center">zh-CN</td>
-<td align="right">zh-CN</td>
-</tr>
-<tr>
-<td align="left">navigator.userLanguage</td>
-<td align="center">zh-cn</td>
-<td align="center">undefined</td>
-<td align="right">zh-cn</td>
-</tr>
-<tr>
-<td align="left">navigator.browserLanguage</td>
-<td align="center">zh-cn</td>
-<td align="center">undefined</td>
-<td align="right">zh-cn</td>
-</tr>
-<tr>
-<td align="left">navigator.systemLanguage</td>
-<td align="center">zh-cn</td>
-<td align="center">undefined</td>
-<td align="right">undefined</td>
-</tr>
-</tbody></table>
-<p>图片来源:</p>
+        <p>今天遇到了两个新概念: 服务端渲染(SSR)和客户端渲染(CSR)。他们分别是什么，各自有什么区别呢？</p>
+<h3 id="服务端渲染-SSR-Server-Side-Render"><a href="#服务端渲染-SSR-Server-Side-Render" class="headerlink" title="服务端渲染(SSR: Server Side Render)"></a>服务端渲染(SSR: Server Side Render)</h3><p>概念: <strong>服务器端</strong>生成html字符串，在给客户端返回html前，先在指定区域内填充数据和符号，再发送给客户端。<strong>客户端只负责解析html</strong></p>
 <blockquote>
-<p><a href="https://blog.csdn.net/lvjin110/article/details/37663067" target="_blank" rel="noopener">https://blog.csdn.net/lvjin110/article/details/37663067</a></p>
+<p>优点: </p>
+<ol>
+<li>前端耗时少，因为不再依赖与js文件首屏渲染快，客户端只用解析html</li>
+<li>有利于SEO(Search Engine Optimization)搜索引擎优化，因为数据在服务器端上显示都是渲染完成的</li>
+</ol>
 </blockquote>
-<p>但是我自己尝试的时候IE浏览器也会打印 ‘zh-CN’<br>可能这个版本比较老，现在IE浏览器版本高了很多吧</p>
-<p>为了适配所有浏览器，书写代码的时候可以这么写:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const browserLang = navigator.language || navigator.browserLanguage || &apos;zh&apos;</span><br></pre></td></tr></table></figure>
+<br> 
 
-<p>意思是：<br><br>如果navigator.language的值为undefined，则使用navigator.browserLanguage，如果navigator.browserLanguage的值为undefined，则取’zh’</p>
-<p>因为可能有大小写的区别，根据写法和判断的不同，也可以写成这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(navigator.language || navigator.browserLanguage).toLowerCase()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>缺点:</p>
+<ol>
+<li>服务器端性能消耗较大，用户体验差</li>
+<li>不容易维护，前端修改html和css后端也需要修改</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="客户端渲染-CSR-Client-Side-Render"><a href="#客户端渲染-CSR-Client-Side-Render" class="headerlink" title="客户端渲染(CSR: Client Side Render)"></a>客户端渲染(CSR: Client Side Render)</h3><p>概念: html作为静态文件，客户端在请求的时候，服务端不做任何处理，直接以源文件的形式返回给客户端，然后根据html上的JavaScript，生成DOM插入html(摘自:<a href="https://www.jianshu.com/p/656a1666a1c5?utm_source=oschina-app" target="_blank" rel="noopener">、三毛的简书</a>)</p>
+<blockquote>
+<p>优点: </p>
+<ol>
+<li>减少了服务器端的压力   </li>
+<li>可以实现局部刷新，无需每次都请求完整的页面</li>
+</ol>
+</blockquote>
+<br>
 
-<p>这样基本就能考虑到所有浏览器的兼容性了</p>
+<blockquote>
+<p>缺点: </p>
+<ol>
+<li>前端耗时多，渲染慢   </li>
+<li>使用了React或者其他MVVM框架之后，因为页面的DOM元素都是在客户端根据js动态生成，网络上的爬虫不会等待数据加载完成之后再爬去数据，因此可供爬虫抓取分析的内容减少。不利于SEO</li>
+</ol>
+</blockquote>
+<hr>
+<p>所以，现在很多公司的网站都是SSR和CSR混着用，比如京东的商品列表用的是服务端渲染，目的是为了优化SEO，而京东的商品评论列表用的是客户端渲染，优化了用户体验</p>
+<hr>
+<h3 id="如何判断一个页面是服务器端渲染还是客户端渲染呢？"><a href="#如何判断一个页面是服务器端渲染还是客户端渲染呢？" class="headerlink" title="如何判断一个页面是服务器端渲染还是客户端渲染呢？"></a>如何判断一个页面是服务器端渲染还是客户端渲染呢？</h3><p>打开一个网页，右键点击查看网页源代码，如果页面上有的东西在源代码里面也可以看得到，则是服务端渲染；反之，如果右键查看网页源代码看不到，那么便是在客户端渲染的。</p>
 
       
     </div>
@@ -492,14 +476,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/07/24/GitLearn1/" rel="next" title="Git学习笔记1">
+                <i class="fa fa-chevron-left"></i> Git学习笔记1
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/24/GitLearn1/" rel="prev" title="Git学习笔记1">
-                Git学习笔记1 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/24/studyGuide/" rel="prev" title="学习路径(从上往下) by 王迎旭">
+                学习路径(从上往下) by 王迎旭 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -630,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#navigator-language和navigator-browserLanguage"><span class="nav-number">1.</span> <span class="nav-text">navigator.language和navigator.browserLanguage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么意思呢？"><span class="nav-number">1.1.</span> <span class="nav-text">什么意思呢？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端渲染-SSR-Server-Side-Render"><span class="nav-number">1.</span> <span class="nav-text">服务端渲染(SSR: Server Side Render)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端渲染-CSR-Client-Side-Render"><span class="nav-number">2.</span> <span class="nav-text">客户端渲染(CSR: Client Side Render)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何判断一个页面是服务器端渲染还是客户端渲染呢？"><span class="nav-number">3.</span> <span class="nav-text">如何判断一个页面是服务器端渲染还是客户端渲染呢？</span></a></li></ol></div>
             
 
           </div>
