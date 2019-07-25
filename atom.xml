@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-25T07:39:46.112Z</updated>
+  <updated>2019-07-25T09:53:55.063Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>什么是正向代理，反向代理和负载均衡？</title>
+    <link href="http://yoursite.com/2019/07/25/%E6%AD%A3%E5%8F%8D%E4%BB%A3%E7%90%86%E5%92%8C%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+    <id>http://yoursite.com/2019/07/25/正反代理和负载均衡/</id>
+    <published>2019-07-25T09:52:43.441Z</published>
+    <updated>2019-07-25T09:53:55.063Z</updated>
+    
+    <content type="html"><![CDATA[<p>以前没有接触过Nginx，今天偶然看到这个新名词，不自觉就去百度了一下。</p><h4 id="什么是Nginx"><a href="#什么是Nginx" class="headerlink" title="什么是Nginx?"></a>什么是Nginx?</h4><blockquote><p>nginx是一款自由的、开源的、高性能的<strong>HTTP服务器</strong>和<strong>反向代理服务器</strong>；同时也是一个<strong>电子邮件(IMAP、POP3、SMTP)代理服务器</strong>；nginx可以作为一个HTTP服务器进行网站的发布处理，另外nginx可以作为反向代理进行负载均衡的实现。</p></blockquote><p>(摘自<a href="https://blog.csdn.net/tsummerb/article/details/79248015" target="_blank" rel="noopener">Sugar执着的博客</a>)</p><p>解释Nginx的时候貌似又出现了新名词: 电子邮件(IMAP,POP3,SMTP)代理服务器。这个又是什么呢？</p><h4 id="IMAP-POP3-SMTP是什么？区别？"><a href="#IMAP-POP3-SMTP是什么？区别？" class="headerlink" title="IMAP,POP3,SMTP是什么？区别？"></a>IMAP,POP3,SMTP是什么？区别？</h4><p>POP3</p><blockquote><p>POP3是Post Office Protocol 3的简称，即邮局协议的第3个版本,它规定怎样将个人计算机连接到Internet的邮件服务器和下载电子邮件的电子协议。它是因特网电子邮件的第一个离线协议标准,POP3允许用户从服务器上把邮件存储到本地主机（即自己的计算机）上,同时删除保存在邮件服务器上的邮件，而POP3服务器则是遵循POP3协议的接收邮件服务器，用来接收电子邮件的。(与IMAP有什么区别？)</p></blockquote><p>SMTP</p><blockquote><p>SMTP 的全称是“Simple Mail Transfer Protocol”，即简单邮件传输协议。它是一组用于从源地址到目的地址传输邮件的规范，通过它来控制邮件的中转方式。SMTP 协议属于 TCP/IP协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。SMTP 服务器就是遵循 SMTP协议的发送邮件服务器。</p><p>SMTP认证，简单地说就是要求必须在提供了账户名和密码之后才可以登录 SMTP 服务器，这就使得那些垃圾邮件的散播者无可乘之机。</p><p>增加 SMTP认证的目的是为了使用户避免受到垃圾邮件的侵扰。</p></blockquote><p>IMAP</p><blockquote><p>IMAP全称是Internet Mail Access Protocol，即交互式邮件存取协议，它是跟POP3类似邮件访问标准协议之一。不同的是，开启了IMAP后，您在电子邮件客户端收取的邮件仍然保留在服务器上，同时在客户端上的操作都会反馈到服务器上，如：删除邮件，标记已读等，服务器上的邮件也会做相应的动作。所以无论从浏览器登录邮箱或者客户端软件登录邮箱，看到的邮件以及状态都是一致的。</p></blockquote><p>(摘自: <a href="http://help.163.com/09/1223/14/5R7P6CJ600753VB8.html" target="_blank" rel="noopener">163网易免费邮</a>)</p><p>总而言之，这三个东西都是邮件发送或者接收的协议。</p><h4 id="正向代理是什么？"><a href="#正向代理是什么？" class="headerlink" title="正向代理是什么？"></a>正向代理是什么？</h4><p>如今，我们要访问国外的某些网站，正常情况下无法访问，有很多人会用FQ操作去访问。FQ方式就是找到一个可以访问国外网站的代理服务器，我们将请求发送给代理服务器，然后由代理服务器去访问国外的网站，然后将访问到的数据发送给我们。</p><p>这就是正向代理。一个位于客户端和原始服务器之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定了目标。然后代理向原始服务器转交请求，并将获得的内容返回给客户端。</p><h4 id="反向代理是什么？"><a href="#反向代理是什么？" class="headerlink" title="反向代理是什么？"></a>反向代理是什么？</h4><p>反向代理是代理服务器的一种，代理服务器根据根据客户端的请求，从其关联的一组或多组后端服务器获取资源，然后再将这些资源返回给客户端。客户端只会知道代理服务器的IP地址，而不知道在代理服务器后面的服务器的存在。</p><p>如：<br>某宝网站。每天访问的人数都贼多。单个服务器无法承受如此高的访问量。这时候就出现了一个新名词：分布式部署—就是通过部署多个服务器来解决访问人数限制的问题。某宝网站就是通过Nginx进行反向代理实现的。通过封装Nginx和其他组件，<a href="http://tengine.taobao.org/" target="_blank" rel="noopener">Tengine</a>就诞生了。</p><h4 id="负载均衡是什么？"><a href="#负载均衡是什么？" class="headerlink" title="负载均衡是什么？"></a>负载均衡是什么？</h4><p>首先，我们先来了解一下负载量和均衡规则分别是什么。</p><h5 id="负载量"><a href="#负载量" class="headerlink" title="负载量"></a>负载量</h5><p>客户端发送的，Nginx反向代理服务器收到的请求数量，就是我们所说的负载量。</p><h5 id="均衡规则"><a href="#均衡规则" class="headerlink" title="均衡规则"></a>均衡规则</h5><p>请求按照一定规则进行分发到不同服务器的规则，就是均衡规则。</p><p><strong>所以，把服务器接收到的请求按照规则分发的过程，防止出现超过服务器处理能力，响应速度慢，甚至无法连接的情况，就是负载均衡。</strong></p><h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><blockquote><p>-硬件负载均衡<br>如F5负载均衡，数据稳定性及安全性好，但是相对造价昂贵。</p></blockquote><blockquote><p>-软件负载均衡<br>利用现有的技术结合主机硬件实现的一种消息队列分发机制。</p></blockquote><h5 id="nginx支持的负载均衡调度算法"><a href="#nginx支持的负载均衡调度算法" class="headerlink" title="nginx支持的负载均衡调度算法"></a>nginx支持的负载均衡调度算法</h5><blockquote><p>weight轮询（默认）：接收到的请求按照顺序逐一分配到不同的后端服务器，即使在使用过程中，某一台后端服务器宕机，nginx会自动将该服务器剔除出队列，请求受理情况不会受到任何影响。<br>这种方式下，可以给不同的后端服务器设置一个权重值（weight），用于调整不同的服务器上请求的分配率；权重数据越大，被分配到请求的几率越大；该权重值，主要是针对实际工作环境中不同的后端服务器硬件配置进行调整的。</p></blockquote><blockquote><p>ip_hash：每个请求按照发起客户端的ip的hash结果进行匹配，这样的算法下一个固定ip地址的客户端总会访问到同一个后端服务器，这也在一定程度上解决了集群部署环境下session共享的问题。</p></blockquote><blockquote><p>fair：智能调整调度算法，动态的根据后端服务器的请求处理到响应的时间进行均衡分配，响应时间短处理效率高的服务器分配到请求的概率高，响应时间长处理效率低的服务器分配到的请求少；结合了前两者的优点的一种调度算法。但是需要注意的是nginx默认不支持fair算法，如果要使用这种调度算法，请安装upstream_fair模块</p></blockquote><blockquote><p>url_hash：按照访问的url的hash结果分配请求，每个请求的url会指向后端固定的某个服务器，可以在nginx作为静态服务器的情况下提高缓存效率。同样要注意nginx默认不支持这种调度算法，要使用的话需要安装nginx的hash软件包。</p></blockquote><p>(摘自<a href="https://blog.csdn.net/tsummerb/article/details/79248015" target="_blank" rel="noopener">Sugar执着的博客</a>)</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;以前没有接触过Nginx，今天偶然看到这个新名词，不自觉就去百度了一下。&lt;/p&gt;
+&lt;h4 id=&quot;什么是Nginx&quot;&gt;&lt;a href=&quot;#什么是Nginx&quot; class=&quot;headerlink&quot; title=&quot;什么是Nginx?&quot;&gt;&lt;/a&gt;什么是Nginx?&lt;/h4&gt;&lt;bl
+      
+    
+    </summary>
+    
+      <category term="Web" scheme="http://yoursite.com/categories/Web/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Git学习笔记2</title>
