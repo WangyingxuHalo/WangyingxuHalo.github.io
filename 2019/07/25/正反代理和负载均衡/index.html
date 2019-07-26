@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="王迎旭的博客">
 <meta property="og:description" content="以前没有接触过Nginx，今天偶然看到这个新名词，不自觉就去百度了一下。 什么是Nginx? nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器；同时也是一个电子邮件(IMAP、POP3、SMTP)代理服务器；nginx可以作为一个HTTP服务器进行网站的发布处理，另外nginx可以作为反向代理进行负载均衡的实现。  (摘自Sugar执着的博客) 解释Nginx的时候貌似又出现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-25T09:53:55.063Z">
+<meta property="og:updated_time" content="2019-07-26T00:47:54.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="什么是正向代理，反向代理和负载均衡？">
 <meta name="twitter:description" content="以前没有接触过Nginx，今天偶然看到这个新名词，不自觉就去百度了一下。 什么是Nginx? nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器；同时也是一个电子邮件(IMAP、POP3、SMTP)代理服务器；nginx可以作为一个HTTP服务器进行网站的发布处理，另外nginx可以作为反向代理进行负载均衡的实现。  (摘自Sugar执着的博客) 解释Nginx的时候貌似又出现">
@@ -452,7 +452,7 @@
 <p>weight轮询（默认）：接收到的请求按照顺序逐一分配到不同的后端服务器，即使在使用过程中，某一台后端服务器宕机，nginx会自动将该服务器剔除出队列，请求受理情况不会受到任何影响。<br>这种方式下，可以给不同的后端服务器设置一个权重值（weight），用于调整不同的服务器上请求的分配率；权重数据越大，被分配到请求的几率越大；该权重值，主要是针对实际工作环境中不同的后端服务器硬件配置进行调整的。</p>
 </blockquote>
 <blockquote>
-<p>ip_hash：每个请求按照发起客户端的ip的hash结果进行匹配，这样的算法下一个固定ip地址的客户端总会访问到同一个后端服务器，这也在一定程度上解决了集群部署环境下session共享的问题。</p>
+<p>ip_hash(散列)：每个请求按照发起客户端的ip的hash结果进行匹配，这样的算法下一个固定ip地址的客户端总会访问到同一个后端服务器，这也在一定程度上解决了集群部署环境下session共享的问题。</p>
 </blockquote>
 <blockquote>
 <p>fair：智能调整调度算法，动态的根据后端服务器的请求处理到响应的时间进行均衡分配，响应时间短处理效率高的服务器分配到请求的概率高，响应时间长处理效率低的服务器分配到的请求少；结合了前两者的优点的一种调度算法。但是需要注意的是nginx默认不支持fair算法，如果要使用这种调度算法，请安装upstream_fair模块</p>
@@ -494,6 +494,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/26/单页面应用和多页面应用/" rel="prev" title="单页面应用（SPA）和多页面应用 （MPA）">
+                单页面应用（SPA）和多页面应用 （MPA） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -570,7 +574,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -651,7 +655,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count"> | 全站共7.6k字</span>
+  <span class="post-count"> | 全站共8.5k字</span>
 </div>
 
   
