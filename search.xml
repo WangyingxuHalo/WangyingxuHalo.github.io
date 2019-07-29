@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[XMLHttpRequest.send()函数]]></title>
+    <url>%2F2019%2F07%2F29%2FrequestSend%2F</url>
+    <content type="text"><![CDATA[request.send(null)今天遇到了Ajax请求当中的request.send(null)。但是不知道这句话由什么用处。所以上网搜了以下。 我遇到的例子是这样的： 1234567891011121314151617181920function getNewContent() &#123; var request = getHTTPObject(); if(request)&#123; request.open(&quot;GET&quot;,&quot;example.txt&quot;,true); request.onreadyStateChange = function() &#123; if(request.readyState == 4)&#123; alert(&quot;Response Received&quot;); var para = document.createElement(&quot;p&quot;); var txt = document.createTextNode(request.responseText); para.appendChild(txt); document.getElementById(&quot;new&quot;).appendChild(para); &#125; &#125; ; request.send(null); &#125; else&#123; alert(&quot;Sorry, your browser doesn&apos;t support XMLHttpRequest&quot;); &#125; alert(&quot;Function Done&quot;);&#125;addLoadEvent(getNewContent); 百度了一下 这个请求分为两种：POST请求和GET请求。 如果是GET请求，就像例子里一样，不用在send()函数里面加内容，放个null就好。因为是在url里面传参数的，如下例子所示： e.g. 12xmlhttp.open(&quot;GET&quot;,&quot;testServlet?name=&quot;+userName,true);xmlhttp.send(null); 如果是POST请求，是要加内容的。因为POST请求不是在url里面传参数的。 e.g. 12345xmlhttp.open(&quot;POST&quot;,&quot;testServlet&quot;,true);//POST方式需要自己设置http的请求头xmlhttp.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;);//POST方式发送数据xmlhttp.send(&quot;name=&quot;+userName); Fighting！]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[同源策略和跨域(上)]]></title>
     <url>%2F2019%2F07%2F29%2F%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%2F</url>
     <content type="text"><![CDATA[今天看《JavaScript DOM编程艺术》这本书的时候，看到了一个新的概念：同源策略。书上说： 在使用Ajax时，千万要注意同源策略。使用XMLHttpRequest对象发送的请求只能访问与其所在的HTML处于同一个域中的数据，不能向其他域发送请求。 这段话看得我一阵懵。啥是同源策略？啥是同一个域？啥是其他域？ 依旧是不同就去百度。 同源是什么？同源是指域名，协议，端口相同。 1.域名: 都属于 www.xxx.com 2.协议:要么都是http，要么都是https 3.端口：端口号要相同。如:80和:8080就不是同一个端口 什么是同源策略？这是浏览器的一个安全功能，不同源的客户端脚本在没有明确授权的情况下，不能读写对方资源。所以a.com的下的js脚本采用ajax读写b.com中的文件数据是会报错的。为了保护本地数据不被js返回回来的数据污染，浏览器会拦截客户端发出的请求回来的数据接收。即便请求发送了，服务器响应了，但是不会被浏览器接收！！ 如果没有同源策略，那么就会发生CSRF攻击(来源:陈曦明的博客)。这里讲的很清楚！！！简洁地来说就是利用你登录网站保存下来的cookie来向你登录过的网站发送非法请求。 ==注意==：这里的话，表单提交和链接什么的是不会受到同源策略的影响的，这些不是http请求！！！ 那我就很疑惑了，平常我们写的网页呀什么的不都是往各种网站上去请求API的吗？这个要是被限制住了怎么办？ 同源策略下的正确接口请求1.JSONP2.空iframe加form3.CORS4.代理网上都有解释，但是我现在基础还不够，等到学完js和一些后端语言之后再回来再看可能收获更大！那就先完成这个内容的上篇，以后再回来完成下篇！ Fighting！！！]]></content>

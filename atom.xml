@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-29T09:08:54.874Z</updated>
+  <updated>2019-07-29T09:44:23.407Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>XMLHttpRequest.send()函数</title>
+    <link href="http://yoursite.com/2019/07/29/requestSend/"/>
+    <id>http://yoursite.com/2019/07/29/requestSend/</id>
+    <published>2019-07-29T09:43:00.642Z</published>
+    <updated>2019-07-29T09:44:23.407Z</updated>
+    
+    <content type="html"><![CDATA[<p>request.send(null)<br>今天遇到了Ajax请求当中的request.send(null)。但是不知道这句话由什么用处。所以上网搜了以下。</p><p>我遇到的例子是这样的：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function getNewContent() &#123;</span><br><span class="line">    var request = getHTTPObject();</span><br><span class="line">    if(request)&#123;</span><br><span class="line">        request.open(&quot;GET&quot;,&quot;example.txt&quot;,true);</span><br><span class="line">        request.onreadyStateChange = function() &#123;</span><br><span class="line">            if(request.readyState == 4)&#123;</span><br><span class="line">                alert(&quot;Response Received&quot;);</span><br><span class="line">                var para = document.createElement(&quot;p&quot;);</span><br><span class="line">                var txt = document.createTextNode(request.responseText);</span><br><span class="line">                para.appendChild(txt);</span><br><span class="line">                document.getElementById(&quot;new&quot;).appendChild(para);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; ;</span><br><span class="line">        request.send(null);</span><br><span class="line">    &#125; else&#123;</span><br><span class="line">        alert(&quot;Sorry, your browser doesn&apos;t support XMLHttpRequest&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    alert(&quot;Function Done&quot;);</span><br><span class="line">&#125;</span><br><span class="line">addLoadEvent(getNewContent);</span><br></pre></td></tr></table></figure><p>百度了一下</p><p>这个请求分为两种：<br><strong>POST请求和GET请求</strong>。</p><p>如果是GET请求，就像例子里一样，不用在send()函数里面加内容，放个null就好。因为是在url里面传参数的，如下例子所示：</p><p>e.g.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open(&quot;GET&quot;,&quot;testServlet?name=&quot;+userName,true);</span><br><span class="line">xmlhttp.send(null);</span><br></pre></td></tr></table></figure><br><p>如果是POST请求，是要加内容的。因为POST请求不是在url里面传参数的。  </p><p>e.g.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.open(&quot;POST&quot;,&quot;testServlet&quot;,true);</span><br><span class="line">//POST方式需要自己设置http的请求头</span><br><span class="line">xmlhttp.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;);</span><br><span class="line">//POST方式发送数据</span><br><span class="line">xmlhttp.send(&quot;name=&quot;+userName);</span><br></pre></td></tr></table></figure><br>Fighting！]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;request.send(null)&lt;br&gt;今天遇到了Ajax请求当中的request.send(null)。但是不知道这句话由什么用处。所以上网搜了以下。&lt;/p&gt;
+&lt;p&gt;我遇到的例子是这样的：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;ta
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>同源策略和跨域(上)</title>
