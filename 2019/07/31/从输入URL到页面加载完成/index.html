@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="今天看《JavaScript DOM编程艺术》这本书的时候，看到了一个新的概念：同源策略。书上说：     在使用Ajax时，千万要注意同源策略。使用XMLHttpRequest对象发送的请求只能访问与其所在的HTML处于同一个域中的数据，不能向其他域发送请求。  这段话看得我一阵懵。啥是同源策略？啥是同一个域？啥是其他域？ 依旧是不同就去百度。   同源是什么？同源是指域名，协议，端口相同。">
+<meta name="description" content="今天在app“开发者头条”上看到一篇文章：输入URL到展现涉及的缓存环节。 作为前端小白，我当然不知道从输入URL到展现涉及的缓存环节了！ 首先，我们可以先了解以下从输入URL到页面加载完成的过程中都发生了什么！ (以下文章主要来自于BULL_DEBUG的博客，中间加上我对于不同概念的查阅和理解) 从输入URL到页面加载完成的过程中都发生了什么？总体来说可以分为6个部分！分别是   DNS连接">
 <meta name="keywords" content="Web前端 HTML CSS JS Vue学习日记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="同源策略和跨域(上)">
-<meta property="og:url" content="http://yoursite.com/2019/07/29/同源策略/index.html">
+<meta property="og:title" content="从输入URL到页面加载完成发生了什么？">
+<meta property="og:url" content="http://yoursite.com/2019/07/31/从输入URL到页面加载完成/index.html">
 <meta property="og:site_name" content="王迎旭的博客">
-<meta property="og:description" content="今天看《JavaScript DOM编程艺术》这本书的时候，看到了一个新的概念：同源策略。书上说：     在使用Ajax时，千万要注意同源策略。使用XMLHttpRequest对象发送的请求只能访问与其所在的HTML处于同一个域中的数据，不能向其他域发送请求。  这段话看得我一阵懵。啥是同源策略？啥是同一个域？啥是其他域？ 依旧是不同就去百度。   同源是什么？同源是指域名，协议，端口相同。">
+<meta property="og:description" content="今天在app“开发者头条”上看到一篇文章：输入URL到展现涉及的缓存环节。 作为前端小白，我当然不知道从输入URL到展现涉及的缓存环节了！ 首先，我们可以先了解以下从输入URL到页面加载完成的过程中都发生了什么！ (以下文章主要来自于BULL_DEBUG的博客，中间加上我对于不同概念的查阅和理解) 从输入URL到页面加载完成的过程中都发生了什么？总体来说可以分为6个部分！分别是   DNS连接">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-29T09:08:54.874Z">
+<meta property="og:updated_time" content="2019-07-31T09:41:10.594Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="同源策略和跨域(上)">
-<meta name="twitter:description" content="今天看《JavaScript DOM编程艺术》这本书的时候，看到了一个新的概念：同源策略。书上说：     在使用Ajax时，千万要注意同源策略。使用XMLHttpRequest对象发送的请求只能访问与其所在的HTML处于同一个域中的数据，不能向其他域发送请求。  这段话看得我一阵懵。啥是同源策略？啥是同一个域？啥是其他域？ 依旧是不同就去百度。   同源是什么？同源是指域名，协议，端口相同。">
+<meta name="twitter:title" content="从输入URL到页面加载完成发生了什么？">
+<meta name="twitter:description" content="今天在app“开发者头条”上看到一篇文章：输入URL到展现涉及的缓存环节。 作为前端小白，我当然不知道从输入URL到展现涉及的缓存环节了！ 首先，我们可以先了解以下从输入URL到页面加载完成的过程中都发生了什么！ (以下文章主要来自于BULL_DEBUG的博客，中间加上我对于不同概念的查阅和理解) 从输入URL到页面加载完成的过程中都发生了什么？总体来说可以分为6个部分！分别是   DNS连接">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/29/同源策略/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/31/从输入URL到页面加载完成/">
 
 
 
 
 
-  <title>同源策略和跨域(上) | 王迎旭的博客</title>
+  <title>从输入URL到页面加载完成发生了什么？ | 王迎旭的博客</title>
   
 
 
@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/同源策略/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/31/从输入URL到页面加载完成/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Siri Wang">
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">同源策略和跨域(上)</h1>
+          <h1 class="post-title" itemprop="name headline">从输入URL到页面加载完成发生了什么？</h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-29T17:07:27+08:00">
-                2019-07-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-31T17:40:18+08:00">
+                2019-07-31
               </time>
             
 
@@ -344,8 +344,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
                   </a>
                 </span>
 
@@ -375,7 +375,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  547 字
+                  2.7k 字
                 </span>
               
 
@@ -391,7 +391,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  9 分钟
                 </span>
               
             </div>
@@ -412,30 +412,73 @@
       
 
       
-        <p>今天看《JavaScript DOM编程艺术》这本书的时候，看到了一个新的概念：<strong>同源策略</strong>。<br><br><br>书上说：   </p>
+        <p>今天在app“开发者头条”上看到一篇文章：<strong>输入URL到展现涉及的缓存环节。</strong></p>
+<p>作为前端小白，我当然不知道从输入URL到展现涉及的缓存环节了！</p>
+<p>首先，我们可以先了解以下从输入URL到页面加载完成的过程中都发生了什么！</p>
+<p><em>(以下文章主要来自于<a href="https://www.jianshu.com/p/a877684a4cdd" target="_blank" rel="noopener">BULL_DEBUG的博客</a>，中间加上我对于不同概念的查阅和理解)</em></p>
+<h3 id="从输入URL到页面加载完成的过程中都发生了什么？"><a href="#从输入URL到页面加载完成的过程中都发生了什么？" class="headerlink" title="从输入URL到页面加载完成的过程中都发生了什么？"></a>从输入URL到页面加载完成的过程中都发生了什么？</h3><p>总体来说可以分为6个部分！<br>分别是</p>
 <blockquote>
-<p>在使用Ajax时，千万要注意同源策略。使用XMLHttpRequest对象发送的请求只能访问与其所在的HTML处于同一个域中的数据，不能向其他域发送请求。</p>
+<ol>
+<li>DNS连接   </li>
+<li>TCP连接   </li>
+<li>发送HTTP请求   </li>
+<li>服务器处理请求并发送HTTP报文   </li>
+<li>浏览器解析渲染页面   </li>
+<li>连接结束</li>
+</ol>
 </blockquote>
-<p>这段话看得我一阵懵。啥是同源策略？啥是同一个域？啥是其他域？</p>
-<p>依旧是不同就去百度。</p>
-<br>
-
-<h4 id="同源是什么？"><a href="#同源是什么？" class="headerlink" title="同源是什么？"></a>同源是什么？</h4><p>同源是指域名，协议，端口相同。</p>
+<p>具体过程：</p>
+<h4 id="1-DNS解析"><a href="#1-DNS解析" class="headerlink" title="1.DNS解析"></a>1.DNS解析</h4><p>DNS域名解析是把域名指向网站空间IP，让人们通过注册的域名可以方便地访问到网站的一种服务。我们现在网上输入的各种网址其实不是真正意义上的各种网站地址。互联网上每一台计算机的唯一标识是他的IP地址。所以我们输入网站之后，经由DNS域名解析(其实跟翻译差不多)，实现了从域名到IP地址的转换。</p>
+<hr>
+<p>如果要查找Google的域名地址，就会首先在本地域名服务器中查找IP地址。</p>
+<p>(1)如果本地域名服务器中没有找到，本地域名服务器会向根域名服务器发送一个请求。</p>
+<p>==这里出现了一个问题：本地域名服务器是啥？根域名服务器又是什么？==</p>
+<p>百度了一哈，</p>
 <blockquote>
-<p>1.域名: 都属于 <a href="http://www.xxx.com" target="_blank" rel="noopener">www.xxx.com</a>   </p>
-<p>2.协议:要么都是http，要么都是https   </p>
-<p>3.端口：端口号要相同。如:80和:8080就不是同一个端口</p>
+<p><strong>本地DNS</strong>一般是指你电脑上网时IPv4或者IPv6设置中填写的那个DNS。这个有可能是手工指定的或者是DHCP自动分配的。<br>如果你的电脑是直连运营商网络，一般默认设置情况下DNS为DHCP分配到的运营商的服务器地址。如果你的电脑和运营商之间还加了无线或者有线路由，那极有可能路由器本身还内置了一个DNS转发器，这玩意的作用是将发往他所有的DNS请求转发到上层DNS。此时由于路由器本身也接管了下挂电脑的DHCP服务，所以它分配给下面电脑的DNS地址就是它自身，所以你能看到电脑的DNS分配到的可能是192.168.1.1。实际上就是路由器自身，而路由器的DNS转发器将请求转发到上层ISP的DNS。所以这里说DNS是局域网或者是运营商的都可以（因为最终都是转发到运营商，小细节不用纠结）。</p>
 </blockquote>
-<br>
-
-<h4 id="什么是同源策略？"><a href="#什么是同源策略？" class="headerlink" title="什么是同源策略？"></a>什么是同源策略？</h4><p>这是浏览器的一个<strong>安全功能</strong>，不同源的客户端脚本在没有明确<strong>授权</strong>的情况下，不能读写对方资源。所以a.com的下的js脚本采用ajax读写b.com中的文件数据是会报错的。为了保护本地数据不被js返回回来的数据污染，浏览器会拦截客户端发出的请求回来的数据接收。即便请求发送了，服务器响应了，但是<strong>不会被浏览器接收</strong>！！</p>
-<p>如果没有同源策略，那么就会发生<a href="https://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html" target="_blank" rel="noopener">CSRF攻击</a>(来源:陈曦明的博客)。这里讲的很清楚！！！简洁地来说就是利用你登录网站保存下来的cookie来向你登录过的网站发送非法请求。</p>
-<p>==注意==：<br>这里的话，表单提交和链接什么的是不会受到同源策略的影响的，这些不是http请求！！！</p>
-<p>那我就很疑惑了，平常我们写的网页呀什么的不都是往各种网站上去请求API的吗？这个要是被限制住了怎么办？</p>
-<br>
-
-<h3 id="同源策略下的正确接口请求"><a href="#同源策略下的正确接口请求" class="headerlink" title="同源策略下的正确接口请求"></a>同源策略下的正确接口请求</h3><h4 id="1-JSONP"><a href="#1-JSONP" class="headerlink" title="1.JSONP"></a>1.JSONP</h4><h4 id="2-空iframe加form"><a href="#2-空iframe加form" class="headerlink" title="2.空iframe加form"></a>2.空iframe加form</h4><h4 id="3-CORS"><a href="#3-CORS" class="headerlink" title="3.CORS"></a>3.CORS</h4><h4 id="4-代理"><a href="#4-代理" class="headerlink" title="4.代理"></a>4.代理</h4><p>网上都有解释，<br>但是我现在基础还不够，等到学完js和一些后端语言之后再回来再看可能收获更大！<br>那就先完成这个内容的上篇，以后再回来完成下篇！</p>
-<p>Fighting！！！</p>
+<p>来源: <a href="https://www.cnblogs.com/lidabo/p/8426751.html" target="_blank" rel="noopener">DoubleLi的博客</a></p>
+<blockquote>
+<p><strong>根域名服务器</strong>主要用来管理互联网的主目录。全世界IPv4根服务器只有13台，1个为主根服务器在美国。其余12个均为辅根服务器，其中9个在美国，欧洲2个，位于英国和瑞典，亚洲1个位于日本。</p>
+</blockquote>
+<p>(2)如果根域名服务器也不存在该域名时，本地域名会向com顶级域名服务器发送一个请求，依次类推下去，直到最后找到了Google的IP地址并将其缓存到本地。</p>
+<h4 id="2-DNS缓存"><a href="#2-DNS缓存" class="headerlink" title="2.DNS缓存"></a>2.DNS缓存</h4><p>在请求Google的IP地址的时候，这个过程中有多个请求。如果每次都经历这么多步骤，肯定会太耗时间。这个时候DNS缓存就起到了重要的作用。</p>
+<h5 id="缓存类型"><a href="#缓存类型" class="headerlink" title="缓存类型"></a>缓存类型</h5><p>DNS存在着多级缓存，从离浏览器的距离排序的话，有以下几种: 浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存。</p>
+<h4 id="3-DNS负载均衡"><a href="#3-DNS负载均衡" class="headerlink" title="3.DNS负载均衡"></a>3.DNS负载均衡</h4><p>但是其实DNS解析返回的IP地址并不都是一样的。一个机器不可能可以同时处理成千上万个请求。用户需要的只是响应他的请求，而不在意是哪个机器响应他的请求。所以DNS可以根据比如用户的地址，每台机器的负载量等等来返回一个合适的IP地址给用户。这就是DNS负载均衡，也叫做DNS重定向技术。</p>
+<h4 id="4-TCP连接"><a href="#4-TCP连接" class="headerlink" title="4.TCP连接"></a>4.TCP连接</h4><p>HTTP协议是使用TCP作为其传输层协议的，当TCP出现瓶颈时，HTTP也会受到影响。</p>
+<h4 id="5-HTTPS协议"><a href="#5-HTTPS协议" class="headerlink" title="5.HTTPS协议"></a>5.HTTPS协议</h4><p>HTTP报文是包裹在TCP报文中发送的，服务器端收到TCP报文时会解包提取出HTTP报文。但是这个过程中存在一定的风险，HTTP报文是明文，如果中间被截取的话会存在一些信息泄露的风险。</p>
+<p>那么在进入TCP报文之前对HTTP做一次加密就可以解决这个问题了。HTTPS协议的本质就是HTTP + SSL(or TLS)。在HTTP报文进入TCP报文之前，先使用SSL对HTTP报文进行加密。从网络的层级结构看它位于HTTP协议与TCP协议之间。</p>
+<h4 id="6-HTTPS过程"><a href="#6-HTTPS过程" class="headerlink" title="6.HTTPS过程"></a>6.HTTPS过程</h4><p>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TLS/SSL握手)，在握手过程中将确立双方加密传输数据的密码信息。TLS/SSL使用了非对称加密，对称加密以及hash等。(TLS/SSL握手这个现在我暂时不太了解，日后我会查阅相关知识，再写一篇博客来介绍)   </p>
+<p>HTTPS相比于HTTP，虽然提供了安全保证，但是势必会带来一些时间上的损耗，如握手和加密等过程，是否使用HTTPS需要根据具体情况在安全和性能方面做出权衡。</p>
+<h4 id="7-HTTP请求"><a href="#7-HTTP请求" class="headerlink" title="7.HTTP请求"></a>7.HTTP请求</h4><p>HTTP请求主要发生在客户端。发送HTTP请求的过程就是构建HTTP请求报文并通过TCP协议中发送到服务器指定端口(HTTP协议80/8080, HTTPS协议443)。</p>
+<h5 id="HTTP请求报文"><a href="#HTTP请求报文" class="headerlink" title="HTTP请求报文"></a>HTTP请求报文</h5><p>由三部分组成：  </p>
+<blockquote>
+<p>-请求行   </p>
+<p>-请求报头:<br>  包含Cookie等信息</p>
+<p>-请求正文:<br>    当使用POST, PUT等方法时，通常需要客户端向服务器传递数据。这些数据就储存在请求正文中。在请求包头中有一些与请求正文相关的信息，例如: 现在的Web应用通常采用Rest架构，请求的数据格式一般为json。这时就需要设置Content-Type: application/json。</p>
+</blockquote>
+<h4 id="8-服务器处理请求并返回HTTP报文"><a href="#8-服务器处理请求并返回HTTP报文" class="headerlink" title="8.服务器处理请求并返回HTTP报文"></a>8.服务器处理请求并返回HTTP报文</h4><p>后端从在固定的端口接收到TCP报文开始，这一部分对应于编程语言中的socket。它会对TCP连接进行处理，对HTTP协议进行解析，并按照报文格式进一步封装成HTTP Request对象，供上层使用。这一部分工作一般是由Web服务器去进行。后端服务器有：Tomcat, Jetty和Netty等等。</p>
+<p>HTTP响应报文也是由三部分组成:</p>
+<blockquote>
+<p>-状态码  </p>
+</blockquote>
+<blockquote>
+<p>-响应报头<br>  常见的响应报头字段有:Server,Connection…</p>
+</blockquote>
+<blockquote>
+<p>-响应报文<br>服务器返回给浏览器的文本信息，通常HTML, CSS, JS,图片等文件就放在这一部分。</p>
+</blockquote>
+<h5 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h5><p>状态码是由3位数组成，第一个数字定义了响应的类别，且有五种可能取值:</p>
+<blockquote>
+<p>1xx：指示信息–表示请求已接收，继续处理。<br>2xx：成功–表示请求已被成功接收、理解、接受。<br>3xx：重定向–要完成请求必须进行更进一步的操作。<br>4xx：客户端错误–请求有语法错误或请求无法实现。<br>5xx：服务器端错误–服务器未能实现合法的请求。</p>
+</blockquote>
+<h4 id="9-浏览器解析渲染页面"><a href="#9-浏览器解析渲染页面" class="headerlink" title="9.浏览器解析渲染页面"></a>9.浏览器解析渲染页面</h4><blockquote>
+<p>JS的解析是由浏览器中的JS解析引擎完成的。JS是单线程运行，也就是说，在同一个时间内只能做一件事，所有的任务都需要排队，前一个任务结束，后一个任务才能开始。但是又存在某些任务比较耗时，如IO读写等，所以需要一种机制可以先执行排在后面的任务，这就是：同步任务(synchronous)和异步任务(asynchronous)。JS的执行机制就可以看做是一个主线程加上一个任务队列(task queue)。同步任务就是放在主线程上执行的任务，异步任务是放在任务队列中的任务。所有的同步任务在主线程上执行，形成一个执行栈;异步任务有了运行结果就会在任务队列中放置一个事件；脚本运行时先依次运行执行栈，然后会从任务队列里提取事件，运行任务队列中的任务，这个过程是不断重复的，所以又叫做事件循环(Event loop)。</p>
+<p>浏览器在解析过程中，如果遇到请求外部资源时，如图像,iconfont,JS等。浏览器将重复1-6过程下载该资源。请求过程是异步的，并不会影响HTML文档进行加载，但是当文档加载过程中遇到JS文件，HTML文档会挂起渲染过程，不仅要等到文档中JS文件加载完毕还要等待解析执行完毕，才会继续HTML的渲染过程。原因是因为JS有可能修改DOM结构，这就意味着JS执行完成前，后续所有资源的下载是没有必要的，这就是JS阻塞后续资源下载的根本原因。CSS文件的加载不影响JS文件的加载，但是却影响JS文件的执行。JS代码执行前浏览器必须保证CSS文件已经下载并加载完毕。</p>
+</blockquote>
+<h4 id="10-Web优化"><a href="#10-Web优化" class="headerlink" title="10.Web优化"></a>10.Web优化</h4><p>如何尽快的加载资源？答案就是能不从网络中加载的资源就不从网络中加载，当我们合理使用缓存，将资源放在浏览器端，这是最快的方式。如果资源必须从网络中加载，则要考虑缩短连接时间，即DNS优化部分;减少响应内容大小，即对内容进行压缩。另一方面，如果加载的资源数比较少的话，也可以快速的响应用户。当资源到达浏览器之后，浏览器开始进行解析渲染，浏览器中最耗时的部分就是reflow，所以围绕这一部分就是考虑如何减少reflow的次数。</p>
+<hr>
+<p>注：这篇文章内容主要来自于<a href="https://www.jianshu.com/p/a877684a4cdd" target="_blank" rel="noopener">BULL_DEBUG的博客</a>，因为读后有所收获！加上了自己查阅相关知识的内容，为了日后温习知识，收录到我的博客当中。</p>
 
       
     </div>
@@ -460,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/26/前端页面由哪三层构成？/" rel="next" title="前端页面由哪三层构成？">
-                <i class="fa fa-chevron-left"></i> 前端页面由哪三层构成？
+              <a href="/2019/07/29/requestSend/" rel="next" title="XMLHttpRequest.send()函数">
+                <i class="fa fa-chevron-left"></i> XMLHttpRequest.send()函数
               </a>
             
           </div>
@@ -469,10 +512,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/29/requestSend/" rel="prev" title="XMLHttpRequest.send()函数">
-                XMLHttpRequest.send()函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -602,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#同源是什么？"><span class="nav-number">1.</span> <span class="nav-text">同源是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是同源策略？"><span class="nav-number">2.</span> <span class="nav-text">什么是同源策略？</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#同源策略下的正确接口请求"><span class="nav-number"></span> <span class="nav-text">同源策略下的正确接口请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-JSONP"><span class="nav-number">1.</span> <span class="nav-text">1.JSONP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-空iframe加form"><span class="nav-number">2.</span> <span class="nav-text">2.空iframe加form</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-CORS"><span class="nav-number">3.</span> <span class="nav-text">3.CORS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-代理"><span class="nav-number">4.</span> <span class="nav-text">4.代理</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#从输入URL到页面加载完成的过程中都发生了什么？"><span class="nav-number">1.</span> <span class="nav-text">从输入URL到页面加载完成的过程中都发生了什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-DNS解析"><span class="nav-number">1.1.</span> <span class="nav-text">1.DNS解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-DNS缓存"><span class="nav-number">1.2.</span> <span class="nav-text">2.DNS缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#缓存类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">缓存类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-DNS负载均衡"><span class="nav-number">1.3.</span> <span class="nav-text">3.DNS负载均衡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-TCP连接"><span class="nav-number">1.4.</span> <span class="nav-text">4.TCP连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-HTTPS协议"><span class="nav-number">1.5.</span> <span class="nav-text">5.HTTPS协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-HTTPS过程"><span class="nav-number">1.6.</span> <span class="nav-text">6.HTTPS过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-HTTP请求"><span class="nav-number">1.7.</span> <span class="nav-text">7.HTTP请求</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HTTP请求报文"><span class="nav-number">1.7.1.</span> <span class="nav-text">HTTP请求报文</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-服务器处理请求并返回HTTP报文"><span class="nav-number">1.8.</span> <span class="nav-text">8.服务器处理请求并返回HTTP报文</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#状态码"><span class="nav-number">1.8.1.</span> <span class="nav-text">状态码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-浏览器解析渲染页面"><span class="nav-number">1.9.</span> <span class="nav-text">9.浏览器解析渲染页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Web优化"><span class="nav-number">1.10.</span> <span class="nav-text">10.Web优化</span></a></li></ol></li></ol></div>
             
 
           </div>
