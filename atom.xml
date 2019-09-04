@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-02T13:38:56.284Z</updated>
+  <updated>2019-09-04T18:44:16.750Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>插入排序</title>
+    <link href="http://yoursite.com/2019/09/05/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2019/09/05/插入排序/</id>
+    <published>2019-09-04T18:45:05.390Z</published>
+    <updated>2019-09-04T18:44:16.750Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="插入排序-Insertion-Sort"><a href="#插入排序-Insertion-Sort" class="headerlink" title="插入排序(Insertion Sort)"></a>插入排序(Insertion Sort)</h3><p>插入排序分为两种:  </p><blockquote><ol><li><p><strong>直接插入排序</strong>(Straight Insertion Sort)</p></li><li><p><strong>二分插入排序</strong>(Binary Insertion Sort)</p></li></ol></blockquote><h4 id="一-直接插入排序"><a href="#一-直接插入排序" class="headerlink" title="一. 直接插入排序"></a>一. 直接插入排序</h4><h5 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h5><p>最好：n-1= O(n) (刚好升序排列)<br>最坏: 1+2+3+…+n-1 = n*(n-1)/2 = O(n^2)</p><h2 id="平均起来是O-n-n-2-2-O-n-2"><a href="#平均起来是O-n-n-2-2-O-n-2" class="headerlink" title="平均起来是O((n+n^2)/2) = O(n^2)"></a>平均起来是O((n+n^2)/2) = O(n^2)</h2><h5 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h5><p>O(1)，因为只有使用一个temp作为原数组以外的额外存储空间,所以为O(1)</p><hr><h5 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h5><p>稳定(Stable)   </p><h2 id="稳定的意思是：如果一个算法稳定，那么若有N个与关键字相同的数据-比如5个A-，那么这些相同的关键字排序后仍按原先序列的顺序排列。如果一个算法不稳定，那么若有N个与关键字相同的数据，可能会出现排序后顺序不同的情况。"><a href="#稳定的意思是：如果一个算法稳定，那么若有N个与关键字相同的数据-比如5个A-，那么这些相同的关键字排序后仍按原先序列的顺序排列。如果一个算法不稳定，那么若有N个与关键字相同的数据，可能会出现排序后顺序不同的情况。" class="headerlink" title="稳定的意思是：如果一个算法稳定，那么若有N个与关键字相同的数据(比如5个A)，那么这些相同的关键字排序后仍按原先序列的顺序排列。如果一个算法不稳定，那么若有N个与关键字相同的数据，可能会出现排序后顺序不同的情况。"></a>稳定的意思是：如果一个算法稳定，那么若有N个与关键字相同的数据(比如5个A)，那么这些相同的关键字排序后<strong>仍按原先序列的顺序排列</strong>。如果一个算法不稳定，那么若有N个与关键字相同的数据，可能会出现排序后顺序不同的情况。</h2><p>原理为：将一组数据分为两组，<strong>已排序组</strong>和<strong>未排序组</strong></p><table><thead><tr><th>已排序组</th><th>未排序组</th></tr></thead></table><p>刚开始已排序组中只有第一个元素。每次从未排序组中取出一个元素，与已排序组的多个元素进行比较，找到合适的位置并将其插入到已排序组当中。</p><p>js代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function insertionSort(list1) &#123;</span><br><span class="line">                for(let i = 1; i &lt; list1.length; i++)&#123;</span><br><span class="line">                    var temp = list1[i];</span><br><span class="line">                    var j = i - 1;</span><br><span class="line">                    while(j &gt;= 0 &amp;&amp; list1[j] &gt; temp)&#123;</span><br><span class="line">                        list1[j + 1] = list1[j];</span><br><span class="line">                        j -= 1;</span><br><span class="line">                    &#125;</span><br><span class="line">                    list1[j+1] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">                return Array.prototype.join.call(list1, &apos;,&apos;);</span><br><span class="line">            &#125;</span><br><span class="line">            alert(insertionSort([1,5,3,7,2]));</span><br></pre></td></tr></table></figure><p>输出：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1,2,3,5,7</span><br></pre></td></tr></table></figure><p>其中，<br><strong>return Array.prototype.join.call(list1, ‘,’);</strong><br>语句表示将对象数组转化为字符串，用’,’连接在一起。</p><h4 id="二-二分插入排序"><a href="#二-二分插入排序" class="headerlink" title="二. 二分插入排序"></a>二. 二分插入排序</h4><h5 id="时间复杂度-1"><a href="#时间复杂度-1" class="headerlink" title="时间复杂度"></a>时间复杂度</h5><p><strong>最好</strong>：O(nlogn)<br>最好的情况是不用交换，刚好正序。那么只用考虑查找的情况。外部O(n)次循环，内部只用O(logn)次查找，所以乘起来为O(nlogn)。</p><p><strong>最坏</strong>: O(n^2)<br>二分插入其实简化的是查找的效率，最主要的工作还是在交换上。交换的话最坏的情况是倒序，那么交换的时间为1+2+…+n-1 = O(n^2)。</p><hr><h5 id="空间复杂度-1"><a href="#空间复杂度-1" class="headerlink" title="空间复杂度"></a>空间复杂度</h5><p>O(1),因为只有用到temp, low, high, mid, j等额外空间，为常数个</p><hr><h5 id="稳定性-1"><a href="#稳定性-1" class="headerlink" title="稳定性"></a>稳定性</h5><p>稳定</p><p>原理：在插入第i个元素时，把对面的0~i-1元素进行折半。先跟中间的那个元素比，如果比那个元素小，则再进行折半，否则对后半进行折半。直到left&lt;right。最后将i-1到目标元素之间的元素全部后移一位，再把元素放到位置i上。</p><hr><p>js代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function insertionSort(list1) &#123;</span><br><span class="line">     for(let i = 1; i &lt; list1.length; i++)&#123;</span><br><span class="line">       var temp = list1[i];</span><br><span class="line">       var low = 0;</span><br><span class="line">       var high = i - 1;</span><br><span class="line">       var mid = -1;</span><br><span class="line">       while(low &lt;= high)&#123;</span><br><span class="line">           mid = Math.floor(low + (high - low) / 2);</span><br><span class="line">           if(list1[mid] &gt; temp)&#123;</span><br><span class="line">               high = mid - 1;</span><br><span class="line">           &#125;</span><br><span class="line">           else&#123;</span><br><span class="line">               low = mid + 1;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       for(let j = i - 1; j &gt;= low; j--)&#123;</span><br><span class="line">           list1[j+1] = list1[j];</span><br><span class="line">       &#125;</span><br><span class="line">       list1[low] = temp;</span><br><span class="line">     &#125;</span><br><span class="line">     return Array.prototype.join.call(list1, &apos;,&apos;);</span><br><span class="line"> &#125;</span><br><span class="line">  alert(insertionSort([1,5,3,7,2]));</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;插入排序-Insertion-Sort&quot;&gt;&lt;a href=&quot;#插入排序-Insertion-Sort&quot; class=&quot;headerlink&quot; title=&quot;插入排序(Insertion Sort)&quot;&gt;&lt;/a&gt;插入排序(Insertion Sort)&lt;/h3&gt;&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>各量级时间复杂度大小比较</title>
+    <link href="http://yoursite.com/2019/09/05/%E5%90%84%E9%87%8F%E7%BA%A7%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%A4%A7%E5%B0%8F%E6%AF%94%E8%BE%83/"/>
+    <id>http://yoursite.com/2019/09/05/各量级时间复杂度大小比较/</id>
+    <published>2019-09-04T18:41:39.156Z</published>
+    <updated>2019-09-04T18:42:48.058Z</updated>
+    
+    <content type="html"><![CDATA[<p>在分析各种算法的时间复杂度问题中，我们会遇到各种量级的函数。当n很小时，其实是难以区分的。但是在n增大的时候，特别是接近于无穷大的时候，它们之间的大小就显而易见：</p><p>O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n^2) &lt; O(n^3) &lt; O(2^n)</p><p>摘自：<a href="https://blog.csdn.net/chenguanghan123/article/details/83478259" target="_blank" rel="noopener">陈广晗-Clare的博客</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在分析各种算法的时间复杂度问题中，我们会遇到各种量级的函数。当n很小时，其实是难以区分的。但是在n增大的时候，特别是接近于无穷大的时候，它们之间的大小就显而易见：&lt;/p&gt;
+&lt;p&gt;O(1) &amp;lt; O(logn) &amp;lt; O(n) &amp;lt; O(nlogn) &amp;lt; O
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>算法练习——反转链表</title>

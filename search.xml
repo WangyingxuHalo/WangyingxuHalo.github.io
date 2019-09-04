@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[插入排序]]></title>
+    <url>%2F2019%2F09%2F05%2F%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[插入排序(Insertion Sort)插入排序分为两种: 直接插入排序(Straight Insertion Sort) 二分插入排序(Binary Insertion Sort) 一. 直接插入排序时间复杂度最好：n-1= O(n) (刚好升序排列)最坏: 1+2+3+…+n-1 = n*(n-1)/2 = O(n^2) 平均起来是O((n+n^2)/2) = O(n^2)空间复杂度O(1)，因为只有使用一个temp作为原数组以外的额外存储空间,所以为O(1) 稳定性稳定(Stable) 稳定的意思是：如果一个算法稳定，那么若有N个与关键字相同的数据(比如5个A)，那么这些相同的关键字排序后仍按原先序列的顺序排列。如果一个算法不稳定，那么若有N个与关键字相同的数据，可能会出现排序后顺序不同的情况。原理为：将一组数据分为两组，已排序组和未排序组 已排序组 未排序组 刚开始已排序组中只有第一个元素。每次从未排序组中取出一个元素，与已排序组的多个元素进行比较，找到合适的位置并将其插入到已排序组当中。 js代码如下： 12345678910111213function insertionSort(list1) &#123; for(let i = 1; i &lt; list1.length; i++)&#123; var temp = list1[i]; var j = i - 1; while(j &gt;= 0 &amp;&amp; list1[j] &gt; temp)&#123; list1[j + 1] = list1[j]; j -= 1; &#125; list1[j+1] = temp; &#125; return Array.prototype.join.call(list1, &apos;,&apos;); &#125; alert(insertionSort([1,5,3,7,2])); 输出： 11,2,3,5,7 其中，return Array.prototype.join.call(list1, ‘,’);语句表示将对象数组转化为字符串，用’,’连接在一起。 二. 二分插入排序时间复杂度最好：O(nlogn)最好的情况是不用交换，刚好正序。那么只用考虑查找的情况。外部O(n)次循环，内部只用O(logn)次查找，所以乘起来为O(nlogn)。 最坏: O(n^2)二分插入其实简化的是查找的效率，最主要的工作还是在交换上。交换的话最坏的情况是倒序，那么交换的时间为1+2+…+n-1 = O(n^2)。 空间复杂度O(1),因为只有用到temp, low, high, mid, j等额外空间，为常数个 稳定性稳定 原理：在插入第i个元素时，把对面的0~i-1元素进行折半。先跟中间的那个元素比，如果比那个元素小，则再进行折半，否则对后半进行折半。直到left&lt;right。最后将i-1到目标元素之间的元素全部后移一位，再把元素放到位置i上。 js代码如下： 1234567891011121314151617181920212223function insertionSort(list1) &#123; for(let i = 1; i &lt; list1.length; i++)&#123; var temp = list1[i]; var low = 0; var high = i - 1; var mid = -1; while(low &lt;= high)&#123; mid = Math.floor(low + (high - low) / 2); if(list1[mid] &gt; temp)&#123; high = mid - 1; &#125; else&#123; low = mid + 1; &#125; &#125; for(let j = i - 1; j &gt;= low; j--)&#123; list1[j+1] = list1[j]; &#125; list1[low] = temp; &#125; return Array.prototype.join.call(list1, &apos;,&apos;); &#125; alert(insertionSort([1,5,3,7,2]));]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[各量级时间复杂度大小比较]]></title>
+    <url>%2F2019%2F09%2F05%2F%E5%90%84%E9%87%8F%E7%BA%A7%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%A4%A7%E5%B0%8F%E6%AF%94%E8%BE%83%2F</url>
+    <content type="text"><![CDATA[在分析各种算法的时间复杂度问题中，我们会遇到各种量级的函数。当n很小时，其实是难以区分的。但是在n增大的时候，特别是接近于无穷大的时候，它们之间的大小就显而易见： O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n^2) &lt; O(n^3) &lt; O(2^n) 摘自：陈广晗-Clare的博客]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[算法练习——反转链表]]></title>
     <url>%2F2019%2F09%2F02%2F%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%2F</url>
     <content type="text"><![CDATA[反转一个单链表。 示例: 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL 解法1：迭代在迭代遍历整个链表的时候，将每个当前节点的next指针指向prev，也就是前一个指针。遍历完整个链表的时候，所有的指针都会指向前一个指针了。 1234567891011var reverseList = function(head) &#123; var prev = null; var curr = head; while(curr != null)&#123; newNode = curr.next; curr.next = prev; prev = curr; curr = newNode; &#125; return prev;&#125;; 解法2：递归reverseList嵌套reverseList。在递归的过程中，将每个原本指向后一个节点的方向改为指向前一个节点。最后return reverse表示返回最后一个节点。 123456789var reverseList = function(head) &#123; if(head == null || head.next == null)&#123; return head; &#125; var reverse = reverseList(head.next); head.next.next = head; head.next = null; return reverse;&#125;;]]></content>
