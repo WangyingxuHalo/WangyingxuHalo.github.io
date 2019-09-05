@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-04T18:44:16.750Z</updated>
+  <updated>2019-09-05T20:00:56.363Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法练习--反转链表二</title>
+    <link href="http://yoursite.com/2019/09/06/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A82/"/>
+    <id>http://yoursite.com/2019/09/06/算法练习-反转链表2/</id>
+    <published>2019-09-05T19:59:46.497Z</published>
+    <updated>2019-09-05T20:00:56.363Z</updated>
+    
+    <content type="html"><![CDATA[<p>反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。</p><p>说明:<br>1 ≤ m ≤ n ≤ 链表长度。</p><p>示例:</p><p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2, n = 4<br>输出: 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL</p><hr><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p>解析：<br>这题和之前做过的反转链表有点类似，我们可以先让curr这个指针走到m点之后，再跟反转链表一样，prev和curr迭代改变链表方向，直到n点。最后再将剩余的部分用.next = xxx 连接起来即可。</p><p>js代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var reverseBetween = function(head, m, n) &#123;</span><br><span class="line">    if(m &gt;= n || m &lt; 0 || n &lt; 0) return head;</span><br><span class="line">    var prev = null;</span><br><span class="line">    var curr = head;</span><br><span class="line">    var i = 1;</span><br><span class="line">    while(i &lt; m &amp;&amp; curr)&#123;  //让curr走到m节点</span><br><span class="line">        prev = curr;</span><br><span class="line">        curr = curr.next;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    t1 = prev; //t1为m节点前一个节点</span><br><span class="line">    t2 = curr; //t2为m节点后一个几点</span><br><span class="line">    while(i&lt;=n &amp;&amp; curr)&#123; //反转m到n之间的节点</span><br><span class="line">        nextNode = curr.next;</span><br><span class="line">        curr.next = prev;</span><br><span class="line">        prev = curr;</span><br><span class="line">        curr = nextNode;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    if(m == 1)&#123;  //特殊情况，若m为1，则需要将第一个节点指向n节点的后一个节点</span><br><span class="line">        t2.next = curr;</span><br><span class="line">        return prev;</span><br><span class="line">    &#125;</span><br><span class="line">    //将剩余部分连接</span><br><span class="line">    t1.next = prev;</span><br><span class="line">    t2.next = curr;</span><br><span class="line">    return head;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>但是这段代码效率不高，因此我去看了网上效率更高的代码。</p><hr><h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p>其实就是在链表开头插入了一个哨兵节点。在m等于1的时候，它指向了n节点。在m不等于1的时候，它指向了第一个几点。因此省去了一步判断条件if(m==1).导致运行效率提高了不少。</p><p>js代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var reverseBetween = function(head, m, n) &#123;</span><br><span class="line">    var first = new ListNode(0);</span><br><span class="line">    first.next = head;</span><br><span class="line">    var prev = first;</span><br><span class="line">    var curr = head;</span><br><span class="line">    var i = 1;</span><br><span class="line">    while(i &lt; m &amp;&amp; curr)&#123;</span><br><span class="line">        prev = curr;</span><br><span class="line">        curr = curr.next;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    t1 = prev;</span><br><span class="line">    t2 = curr;</span><br><span class="line">    while(i &lt;= n &amp;&amp; curr)&#123;</span><br><span class="line">        nextNode = curr.next;</span><br><span class="line">        curr.next = prev;</span><br><span class="line">        prev = curr;</span><br><span class="line">        curr = nextNode;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    t1.next = prev;</span><br><span class="line">    t2.next = curr;</span><br><span class="line">    return first.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><hr><h4 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h4><p>原理：代码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(let i = m; i &lt; n; i++)&#123;</span><br><span class="line">       var next1 = head.next;</span><br><span class="line">       head.next = next1.next;</span><br><span class="line">       next1.next = pre.next;</span><br><span class="line">       pre.next = next1;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><p>可以让m到n节点的列表逆转</p><p>js代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var reverseBetween = function(head, m, n) &#123;</span><br><span class="line">    var first = new ListNode(0);</span><br><span class="line">    first.next = head;</span><br><span class="line">    var pre = first;</span><br><span class="line">    for(let i = 1; i &lt; m; i++)&#123;</span><br><span class="line">        pre = pre.next;</span><br><span class="line">    &#125;</span><br><span class="line">    head = pre.next;</span><br><span class="line">    for(let i = m; i &lt; n; i++)&#123;</span><br><span class="line">        var next1 = head.next;</span><br><span class="line">        head.next = next1.next;</span><br><span class="line">        next1.next = pre.next;</span><br><span class="line">        pre.next = next1;</span><br><span class="line">    &#125;</span><br><span class="line">    return first.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。&lt;/p&gt;
+&lt;p&gt;说明:&lt;br&gt;1 ≤ m ≤ n ≤ 链表长度。&lt;/p&gt;
+&lt;p&gt;示例:&lt;/p&gt;
+&lt;p&gt;输入: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2, n = 4&lt;br&gt;输出
+      
+    
+    </summary>
+    
+      <category term="算法练习" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>插入排序</title>
@@ -68,7 +94,7 @@
     <link href="http://yoursite.com/2019/09/02/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
     <id>http://yoursite.com/2019/09/02/反转链表/</id>
     <published>2019-09-02T13:36:36.492Z</published>
-    <updated>2019-09-02T13:38:56.284Z</updated>
+    <updated>2019-09-05T20:01:29.013Z</updated>
     
     <content type="html"><![CDATA[<p>反转一个单链表。</p><p>示例:</p><p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br>输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p><h4 id="解法1：迭代"><a href="#解法1：迭代" class="headerlink" title="解法1：迭代"></a>解法1：迭代</h4><p>在迭代遍历整个链表的时候，将每个当前节点的next指针指向prev，也就是前一个指针。遍历完整个链表的时候，所有的指针都会指向前一个指针了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var reverseList = function(head) &#123;</span><br><span class="line">    var prev = null;</span><br><span class="line">    var curr = head;</span><br><span class="line">    while(curr != null)&#123;</span><br><span class="line">        newNode = curr.next;</span><br><span class="line">        curr.next = prev;</span><br><span class="line">        prev = curr;</span><br><span class="line">        curr = newNode;</span><br><span class="line">    &#125;</span><br><span class="line">    return prev;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h4 id="解法2：递归"><a href="#解法2：递归" class="headerlink" title="解法2：递归"></a>解法2：递归</h4><p>reverseList嵌套reverseList。在递归的过程中，将每个原本指向后一个节点的方向改为指向前一个节点。最后return reverse表示返回最后一个节点。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var reverseList = function(head) &#123;</span><br><span class="line">    if(head == null || head.next == null)&#123;</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">    var reverse = reverseList(head.next);</span><br><span class="line">    head.next.next = head;</span><br><span class="line">    head.next = null;</span><br><span class="line">    return reverse;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -84,7 +110,7 @@
     
     </summary>
     
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法练习" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/"/>
     
     
   </entry>
