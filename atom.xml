@@ -219,9 +219,9 @@
     <link href="http://yoursite.com/2019/07/26/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E7%94%B1%E5%93%AA%E4%B8%89%E5%B1%82%E6%9E%84%E6%88%90%EF%BC%9F/"/>
     <id>http://yoursite.com/2019/07/26/前端页面由哪三层构成？/</id>
     <published>2019-07-26T09:27:49.916Z</published>
-    <updated>2019-07-26T09:28:46.005Z</updated>
+    <updated>2019-09-05T20:06:23.215Z</updated>
     
-    <content type="html"><![CDATA[<p>今天看书的时候，看到了一句话：</p><blockquote><p>网页的行为层(JavaScript)是作用于其结构层(HTML)之上的，还是两种代码混杂在一起？</p></blockquote><p>这句话貌似没有看起来这么简单，难道行为层就是JavaScript，结构层就是HTML？</p><p>老规矩，百度。</p><p><strong>最准确的网页设计思路是把网页分成三个层次，即：结构层、表示层、行为层。</strong></p><hr><h3 id="网页的结构层（structural-layer）"><a href="#网页的结构层（structural-layer）" class="headerlink" title="网页的结构层（structural layer）"></a>网页的结构层（structural layer）</h3><p>由HTML或XHTML之类的语言负责创建，标签对网页内容的语义做出了描述，但这些标签不包含任何关于如何显示有关内容的信息。</p><hr><h3 id="网页的结构层（presentation-layer）"><a href="#网页的结构层（presentation-layer）" class="headerlink" title="网页的结构层（presentation layer）"></a>网页的结构层（presentation layer）</h3><p>由CSS负责创建，负责了如何显示有关信息的问题。</p><hr><h3 id="网页的行为层（behavior-layer）"><a href="#网页的行为层（behavior-layer）" class="headerlink" title="网页的行为层（behavior layer）"></a>网页的行为层（behavior layer）</h3><p>由JavaScript和DOM负责，负责了内容该如何对事件做出反应</p><p>easy！</p>]]></content>
+    <content type="html"><![CDATA[<p>今天看书的时候，看到了一句话：</p><blockquote><p>网页的行为层(JavaScript)是作用于其结构层(HTML)之上的，还是两种代码混杂在一起？</p></blockquote><p>这句话貌似没有看起来这么简单，难道行为层就是JavaScript，结构层就是HTML？</p><p>老规矩，百度。</p><p><strong>最准确的网页设计思路是把网页分成三个层次，即：结构层、表示层、行为层。</strong></p><hr><h3 id="网页的结构层（structural-layer）"><a href="#网页的结构层（structural-layer）" class="headerlink" title="网页的结构层（structural layer）"></a>网页的结构层（structural layer）</h3><p>由HTML或XHTML之类的语言负责创建，标签对网页内容的语义做出了描述，但这些标签不包含任何关于如何显示有关内容的信息。</p><hr><h3 id="网页的表示层（presentation-layer）"><a href="#网页的表示层（presentation-layer）" class="headerlink" title="网页的表示层（presentation layer）"></a>网页的表示层（presentation layer）</h3><p>由CSS负责创建，负责了如何显示有关信息的问题。</p><hr><h3 id="网页的行为层（behavior-layer）"><a href="#网页的行为层（behavior-layer）" class="headerlink" title="网页的行为层（behavior layer）"></a>网页的行为层（behavior layer）</h3><p>由JavaScript和DOM负责，负责了内容该如何对事件做出反应</p><p>easy！</p>]]></content>
     
     <summary type="html">
     
