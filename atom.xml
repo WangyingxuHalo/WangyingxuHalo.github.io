@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-05T20:00:56.363Z</updated>
+  <updated>2019-09-20T16:50:48.130Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法练习-合并两个有序链表</title>
+    <link href="http://yoursite.com/2019/09/21/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/"/>
+    <id>http://yoursite.com/2019/09/21/算法练习-合并两个有序链表/</id>
+    <published>2019-09-20T16:47:40.886Z</published>
+    <updated>2019-09-20T16:50:48.130Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天做链表的题目，又遇到了新类型：合并两个有序链表。虽说是简单题，但是第一次做还是做的乱七八糟的。总结一下leetcode上比较好的官方解法。</p><h4 id="解法1：递归"><a href="#解法1：递归" class="headerlink" title="解法1：递归"></a>解法1：递归</h4><p>这个解法和归并排序(Merge Sort)使用了同一种思想和方法。如果当前节点a小于节点b，则使用merge(a+1,b),并return 节点a，以此类推…</p><p>Js代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var mergeTwoLists = function(l1, l2) &#123;</span><br><span class="line">    if(l1 == null) return l2;</span><br><span class="line">    else if(l2 == null) return l1;</span><br><span class="line">    else if(l1.val &gt; l2.val)&#123;</span><br><span class="line">        l2.next = mergeTwoLists(l2.next,l1);</span><br><span class="line">        return l2;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        l1.next = mergeTwoLists(l1.next,l2);</span><br><span class="line">        return l1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h4 id="解法2-迭代"><a href="#解法2-迭代" class="headerlink" title="解法2: 迭代"></a>解法2: 迭代</h4><p>这种解法使用了prehead这个哨兵节点，方便最后return。  </p><p>原理：<br>设立一个prev节点，若l1的值小于l2的值，prev.next = l1.然后prev = prev.next. 以此类推</p><p>JS代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var mergeTwoLists = function(l1, l2) &#123;</span><br><span class="line">    var prehead = new ListNode(-1);</span><br><span class="line">    var prev = new ListNode(0);</span><br><span class="line">    prehead.next = prev;</span><br><span class="line">    while(l1!=null &amp;&amp; l2!=null)&#123;</span><br><span class="line">        if(l1.val &lt; l2.val)&#123;</span><br><span class="line">        prev.next = l1;</span><br><span class="line">        l1 = l1.next;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        prev.next = l2;</span><br><span class="line">        l2 = l2.next;</span><br><span class="line">    &#125;</span><br><span class="line">        prev = prev.next;</span><br><span class="line">&#125;</span><br><span class="line">    prev.next = l1==null ? l2:l1;</span><br><span class="line">    return prehead.next.next;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天做链表的题目，又遇到了新类型：合并两个有序链表。虽说是简单题，但是第一次做还是做的乱七八糟的。总结一下leetcode上比较好的官方解法。&lt;/p&gt;
+&lt;h4 id=&quot;解法1：递归&quot;&gt;&lt;a href=&quot;#解法1：递归&quot; class=&quot;headerlink&quot; title=&quot;解
+      
+    
+    </summary>
+    
+      <category term="算法练习" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>算法练习--反转链表二</title>
@@ -314,10 +338,10 @@
   
   <entry>
     <title>学习路径(从上往下) by 王迎旭</title>
-    <link href="http://yoursite.com/2019/07/24/studyGuide/"/>
-    <id>http://yoursite.com/2019/07/24/studyGuide/</id>
+    <link href="http://yoursite.com/2019/07/24/StudyGuide/"/>
+    <id>http://yoursite.com/2019/07/24/StudyGuide/</id>
     <published>2019-07-24T07:59:44.701Z</published>
-    <updated>2019-07-25T07:43:26.976Z</updated>
+    <updated>2019-09-20T16:51:57.172Z</updated>
     
     <content type="html"><![CDATA[<h4 id="所有的学习都建立在扎实的HTML-CSS-JavaScript的基础之上"><a href="#所有的学习都建立在扎实的HTML-CSS-JavaScript的基础之上" class="headerlink" title="所有的学习都建立在扎实的HTML,CSS,JavaScript的基础之上"></a>所有的学习都建立在扎实的HTML,CSS,JavaScript的基础之上</h4><p>想入手前端，我却很迷茫不知道应该按照一个怎样的路去走。经过不断地查阅网上的资料以及实习时问周边的大佬。因此，我总结出了以下的学习路径。现在才大二，还有很长的一段路要走。</p><p><strong>1.html5</strong></p><blockquote><p>-w3cschool</p></blockquote><p><strong>2.css3</strong></p><blockquote><p>-《精通CSS》</p></blockquote><p><strong>3.javaScript</strong></p><blockquote><p>-《javaScript高级程序设计第3版》   </p><p>-《javaScript DOM编程艺术第2版》</p></blockquote><p>重点: 闭包，原型链，this，DOM编程, Ajax等</p><p><strong>4.ES6</strong></p><blockquote><p>-《ES6标准入门》</p></blockquote><p>重点: Promise, 箭头函数, Async/Await等</p><p><strong>5.Node</strong></p><blockquote><p>-《Node.js开发指南》</p><p>-《深入浅出Node.js》</p><p>-CNode社区</p></blockquote><p><strong>6.工程类工具</strong></p><blockquote><p>(1) 项目构建，打包，压缩: Webpack   </p></blockquote><blockquote><p>(2) 编译(将ES2015+转化为ES2015): Babel   </p></blockquote><blockquote><p>(3) 版本管理: Git(推荐，我是先学这个), SVN(较为落后)</p></blockquote><p><strong>7.框架</strong></p><blockquote><p>(1) 操作DOM: jQuery, zepto   </p><p>(2) 操作数据: Vue, React, Angular</p></blockquote><p>重点: 设计思想，Diff算法，相关生态等</p><p><strong>8.数据结构和算法(尽早学，培养思想)</strong></p><blockquote><p>极客时间-王争专栏</p></blockquote><p><strong>9.性能优化</strong></p><blockquote><p>-《高性能javaScript》</p></blockquote><p>注意: 第五章，v8已经做优化；第九章，构建部分，现在基于webpack已经有很成熟的方案了；第十章工具不用看，直接去看chrome的devtool文档</p><p><strong>10.网络编程</strong>   </p><p>关键字:</p><blockquote><p>-fetch</p><p>-websocket</p><p>-jsonp</p><p>-cors</p><p>-formData</p><p>-Fetch api</p><p>-Ajax</p></blockquote>]]></content>
     
